@@ -1,0 +1,79 @@
+import React, { useEffect,useState } from 'react';
+import axios from "axios";
+import Products from "./Products";
+import "../Layouts/Allcards.css";
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { Container } from 'reactstrap';
+
+
+const USER_API_BASE_URL = "http://localhost:8080/properties";
+
+const AllProperties=()=>{
+
+const [search,setSearch]=useState([]);
+    const searchItemByCity=(e)=>{
+
+       setSearch(properties.filter((p)=>{
+        if(p.address.city.toUpperCase().includes(e.target.value.toUpperCase()))
+        return p;
+        
+    })) 
+
+
+    }
+    
+
+    useEffect(()=>{
+        getAllproperties();
+       },[]);
+
+
+      const getAllproperties=()=>{
+       axios.get(USER_API_BASE_URL).then(
+           (response)=>{
+               console.log(response);
+               JSON.stringify(response);
+               setProperties(response.data);
+               setSearch(response.data);
+           },
+           (error)=>{
+               console.log(error);
+           }
+       );
+      };
+
+    const [properties,setProperties]=useState([])
+return(
+    <div >
+        <Container>
+        
+
+        <div  class="input-group rounded" style={{margin:"50px",}} dark >
+                <input
+                  type="search"
+                  class="form-control rounded"
+                  placeholder="Search your required medicine here"
+                  aria-label="Search"
+                  aria-describedby="search-addon"
+                  onChange={searchItemByCity}/>
+                  
+              </div>
+              <h3 style={{"color":"Black"}}>Recently Added properties</h3>
+              </Container>
+        <div style={{marginTop:"50px",backgroundColor:"color: white "}}>
+        {/* rgb(202, 233, 252) */}
+        
+        </div>
+        {/* {Product.map((item) => {
+            return (<Products prod={item}/>)
+        })} */}
+        {
+            properties.length > 0
+            ? search.map((item)=><div className='Allcards'><Products  prop={item}/></div> )
+            :<div className='title'><h1>Sorry! Server is Down... Please try again later.</h1></div>
+        }
+    </div>
+)
+}
+export default AllProperties;
