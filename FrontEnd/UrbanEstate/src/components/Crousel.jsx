@@ -10,19 +10,19 @@ import {
 const items = [
   {
     // src: '../images/123.jpg',
-    src : "https://www.google.com/imgres?imgurl=https%3A%2F%2Fimg.freepik.com%2Fpremium-photo%2Fperson-holding-small-house-model-real-estate-agent-offer-house-property-insurance-security-concept-wide-banner-composition-with-bokeh-background-copy-space_528263-2843.jpg&imgrefurl=https%3A%2F%2Fwww.freepik.com%2Fpremium-photo%2Fperson-holding-small-house-model-real-estate-agent-offer-house-property-insurance-security-concept-wide-banner-composition-with-bokeh-background-copy-space_26483324.htm&tbnid=8M_6x7cRZnHaaM&vet=12ahUKEwjbtOOI9cf9AhWkHLcAHevsC68QMygAegUIARC6AQ..i&docid=zFJIIDRsQ_fy6M&w=626&h=245&q=real%20estate%20sliding%20images%20photos%20wide&ved=2ahUKEwjbtOOI9cf9AhWkHLcAHevsC68QMygAegUIARC6AQ",
+    src : "https://i.pinimg.com/originals/10/e5/85/10e585db9cf2a39893f5814982024404.jpg",
     //altText: 'Slide 1',
     //caption: 'Slide 1',
     key: 1,
   },
   {
-    src: 'https://www.netmeds.com/images/cms/aw_rbslider/slides/1661966356_Web_Home.jpg',
+    src: 'https://pngimg.com/d/building_PNG33.png',
     //altText: 'Slide 2',
     //caption: 'Slide 2',
     key: 2,
   },
   {
-    src: 'https://img.freepik.com/premium-vector/vector-medical-banner-pharmacy-template-hospitals-advertising-pharmacies-training-international_497982-300.jpg?w=1380',
+    src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR750JET2xMXKBICvC4aOxKD4zdcCYBFVFCQ-_o33llCsdBSp3hg6d3eN1vlLB8-8t9Tw&usqp=CAU',
     // altText: 'Slide 3',
     // caption: 'Slide 3',
     key: 3,

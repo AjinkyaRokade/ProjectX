@@ -17,7 +17,7 @@ import {
 } from "reactstrap";
 
 const USER_API_BASE_URL = "http://localhost:8080/";
-const Products = ({ prop }) => {
+const Properties = ({ prop }) => {
   const sendId = (id) => {
     navigate("/PropertyDetails/"+id);
   };
@@ -87,4 +87,4 @@ const Products = ({ prop }) => {
     </div>
   );
 };
-export default Products;
+export default Properties;

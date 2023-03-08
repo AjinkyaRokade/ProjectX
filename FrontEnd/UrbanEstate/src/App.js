@@ -9,11 +9,10 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import AllCartItems from './components/AllCartItems';
+import Wishlist from './components/Wishlist';
 import { Container } from 'reactstrap';
 import Address from './components/Address';
 import AboutUs from './components/AboutUs';
-import Payment from './components/Payment';
 import InjectedCheckoutForm from './components/CheckoutForm';
 import UpdatePassword from './components/UpdatePassword';
 import ViewOrders from './components/ViewOrders';
@@ -36,10 +35,9 @@ function App() {
         <Route exact path="/" element={<Home/>}/>
         <Route exact path="/Login" element={<Login/>}/>
         <Route exact path="/SignUpUser" element={<SignUp/>}/>
-        <Route exact path="/Wishlist" element={<AllCartItems/>}/>
+        <Route exact path="/Wishlist" element={<Wishlist/>}/>
         <Route exact path="/AboutUs" element={<AboutUs/>}/>
         <Route exact path='/Address' element={<Address/>}/>
-        <Route exact path='/Payment' element={<Payment/>}/>
         <Route exact path='/ChekoutForm' element={<InjectedCheckoutForm/>}/>
         <Route exact path='/updatepassword' element={<UpdatePassword/>}/>
         <Route exact path='/ViewOrders' element={<ViewOrders/>}/>

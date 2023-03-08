@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AllProperties from "./AllProperties";
-import Products from "./Products";
+import Products from "./Properties";
 import Header from "./Header";
 import "./Home.css";
 import Footer from "./footer/Footer";

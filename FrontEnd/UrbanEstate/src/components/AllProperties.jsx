@@ -1,6 +1,6 @@
 import React, { useEffect,useState } from 'react';
 import axios from "axios";
-import Products from "./Products";
+import Properties from "./Properties";
 import "../Layouts/Allcards.css";
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -70,7 +70,7 @@ return(
         })} */}
         {
             properties.length > 0
-            ? search.map((item)=><div className='Allcards'><Products  prop={item}/></div> )
+            ? search.map((item)=><div className='Allcards'><Properties  prop={item}/></div> )
             :<div className='title'><h1>Sorry! Server is Down... Please try again later.</h1></div>
         }
         <br></br>
