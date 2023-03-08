@@ -1,5 +1,5 @@
 import React from "react";
-import Footer from "./Footer";
+import Footer from "./footer/Footer";
 import Header from "./Header";
 import {
   Jumbotron,
@@ -22,13 +22,10 @@ const AboutUs = () => {
           {/* First Card */}
           <div style={{width: "1000px",height:"500px",alignContent:"center",marginBlock:"100px"}}>
             <Card color="transparent">
-              <CardTitle>MediKart</CardTitle>
+              <CardTitle>UrbanEstate</CardTitle>
               <CardText>
-                
-              </CardText>
-              
+              </CardText>  
             </Card>
-            
           </div>
           <Card
             style={{
@@ -43,13 +40,13 @@ const AboutUs = () => {
 
             <img src={require("../images/Photo.jpg")} style={{height:"350px"}}></img>
 
-            <h5 className="mt-2">Shubham Mawle</h5>
+            <h5 className="mt-2">Ajinkya Rokade</h5>
             <CardText className="mb-2 text-muted">Business Partner</CardText>
             <CardText className="mb-2 text-muted">
-              Phone: +91-8871579014
+              Phone: +91-7350396866
             </CardText>
             <CardText className="mb-2 text-muted">
-              Email: shubhammawle@gmail.com
+              Email: ajinkyarokade1010@gmail.com
             </CardText>
           </Card>
 

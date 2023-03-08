@@ -53,7 +53,7 @@ const Products = ({ prop }) => {
           backgroundColor: "white",
           color: "light",
           width: "18rem",
-          height: "22rem",
+          height: "30rem",
           margin: "-5px",
           // padding: "-2px"
         }}
@@ -61,12 +61,17 @@ const Products = ({ prop }) => {
         <CardSubtitle className="title">
           <a href="/PropertyDetails"></a> {prop.propType}
         </CardSubtitle>
-        <img alt="Sample" className="cardImage" src={prop.images} />
-        <CardText className="body">{prop.description} </CardText>
-        <CardText className="body">{prop.area}</CardText>
-        <CardText className="body">{prop.price}₹/Sqft</CardText>
-      </Card>
-       
+        <img alt="Sample" className="cardImage" src={require("../images/p-2.jpg")} />
+        <span style={{ background: prop.propertyFor === "SELL" ? "#25b5791a" : "#ff98001a", color: prop.propertyFor === "SELL" ? "#25b579" : "#ff9800", width:"50px", margin:"auto" }}><b>{prop.propertyFor}</b></span>
+        <CardText className="body"><b>{prop.description} </b></CardText>
+        <CardText className="body"><b>{prop.area} &nbsp;Sqft</b></CardText>
+        {prop.propertyFor==="SELL"&&(
+        <CardText className="body"><b>{prop.price}₹/Sqft</b></CardText>)}
+         {prop.propertyFor==="RENT"&&(
+        <CardText className="body"><b>{prop.price}₹/Pm</b></CardText>)}
+        <CardText className="body"><b>{prop.address.city}</b></CardText>
+       <br></br>
+       </Card>
        {(sessionStorage.getItem("token") && sessionStorage.getItem("userRole").includes("ADMIN")) 
        ?
        <></>
@@ -78,9 +83,7 @@ const Products = ({ prop }) => {
     >
       Add to Wishlist
     </Button>
-      }
-      
-       
+}  
     </div>
   );
 };

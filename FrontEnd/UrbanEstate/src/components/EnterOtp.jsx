@@ -1,6 +1,6 @@
 import React from "react";
 import { Form, FormGroup, Label,Input,FormFeedback } from "reactstrap";
-import Footer from "./Footer";
+import Footer from "./footer/Footer";
 import Header from "./Header";
 import { useState, } from "react";
 import axios from "axios";
@@ -46,8 +46,7 @@ const handleSubmit = (e) =>
       sessionStorage.setItem("user",user)
 
       navigate("/NewPassword")
-      
-
+    
     }).catch(function (error) {
       console.error(error);
     });
@@ -58,7 +57,7 @@ const handleSubmit = (e) =>
             <Header></Header>
             <div className="Login" >
           <div className="Auth-form-container">
-          <form className="Auth-form" onSubmit={handleSubmit}>
+          <form className="Auth-form" onSubmit={handleSubmit} style={{margin:"auto"}}>
           <h4 className="Auth-form-title">Let's Reset Your Password in few steps</h4>
           <div className="form-group mt-3"></div>
           <label>Step 2: Enter OTP</label>
@@ -68,7 +67,7 @@ const handleSubmit = (e) =>
                 value={data.otp}
                 onChange={handleChange}
                 className="form-control mt-1"
-                placeholder="Enter OTP"
+                placeholder="Enter OTP" style={{margin:"auto", width:"400px"}}
               />
              
                 

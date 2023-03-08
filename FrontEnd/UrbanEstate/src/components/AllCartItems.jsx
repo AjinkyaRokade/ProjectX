@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Navigate, useNavigate } from "react-router-dom";
 
-import Footer from "./Footer";
+import Footer from "./footer/Footer";
 import Header from "./Header";
 import { Button, Container, Nav, Table } from "reactstrap";
 import "./Home.css";
@@ -18,7 +18,8 @@ const Remove_Cart_Items = "http://localhost:8080/medi/api/cart/remove";
 const AllCartItems = () => {
 
   let navigate = useNavigate();
-
+  const[date, setDate]=useState("");
+  const [dateFlag, setDateFlag]=useState(false);
   const [Count, setCount] = useState(0);
   const [properties, setProperties] = useState([]);
   useEffect(() => {
@@ -174,7 +175,10 @@ const AllCartItems = () => {
     getCartItems();
   }, []);
 //==================================================================================================================
- 
+const datechange=(e)=>{
+  setDate(e.target.value);
+  console.log(date);
+}
   //===========================================================================================================
   const getCartItems = () => {
     let id = sessionStorage.getItem("userID");
@@ -197,7 +201,30 @@ const AllCartItems = () => {
       console.error("unexpected error");
     }
   };
+  // ==========================================
+
+  const showOwnertDetails=(id)=>{
+
+    navigate("/OwnerDetails/"+id)
+  }
+  //================================
+const bookAppointment=(id)=>{
+  if(!dateFlag){
+  setDateFlag("true");}
+  else{
+  let token = sessionStorage.getItem("token");
+  let userid = sessionStorage.getItem("userID");
   
+  axios.post("http://localhost:8080/appointment/book/"+id+"/"+userid+"/"+date, {
+    headers: { Authorization: token },}).then((response)=>{
+      toast.warning(response.data)
+      navigate('/')
+    },(error)=>{
+      toast.warning("appointment already booked");
+  })
+}
+}
+
 //==================================================================================================================
   return (
     <div className="Home">
@@ -216,58 +243,50 @@ const AllCartItems = () => {
         <Container>
         <div className="product-container" style={{margin:"50px"}}><h4>Lets Book your new Property</h4></div>
 
-            
+            <div className="container">
+              <div className="row">
               { properties.map((item) => (
-                  // <tbody>
-                  //   <tr>
-                  //     <td>{item.propType}</td>
-                  //     <td>
-                  //       <Button color="primary" size="sm" onClick={()=>reduceItemQty(item.product.id)}>
-                  //         -
-                  //       </Button>
-                  //       &nbsp;&nbsp;{item.price}&nbsp;&nbsp;
-                  //       <Button color="primary" size="sm" onClick={()=>increaseItemQty(item.product.id)}>
-                  //         +
-                  //       </Button>
-                  //     </td>
-                  //     <td>{item.description} </td>
-                  //     <td>{item.price} ₹</td>
-                  //     <td>
-                  //       <Button
-                  //         color="danger"
-                  //         onClick={() => removeCartItem(item.product.id)}
-                  //       >
-                  //         {" "}
-                  //         Remove{" "}
-                  //       </Button>
-                  //     </td>
-                  //   </tr>
-                  // </tbody>
-                  
+                <div className="col-md">
+                <div class="card" style={{ "width": "18rem", "margin": "auto" }}>
+                  <img class="card-img-top" src={require("../images/p-1.jpg")} alt="Card image cap" />
+                  <div class="card-body">
+                    <h5 class="card-title">{item.propType}</h5>
+                    <span style={{ background: item.propertyFor === "SELL" ? "#25b5791a" : "#ff98001a", color: item.propertyFor === "SELL" ? "#25b579" : "#ff9800" }}>{item.propertyFor}</span>
 
-                  <div class="card" style={{"width": "18rem", "margin":"auto"}}>
-  <img class="card-img-top" src={"p-1.jpg"} alt="Card image cap"/>
-  <div class="card-body">
-    <h5 class="card-title">{item.propType}</h5>
-    <p class="card-text">{item.description}</p>
-    <h5 class="card-title">{item.price}&nbsp;&nbsp; ₹</h5>
-    <h5 class="card-title">{item.area}&nbsp;&nbsp;SqFt</h5>
-    <button onClick={() => removeCartItem(item.id)} class="btn btn-success">Remove from wishlist</button>
-  </div>
-</div>
+                    <p class="card-text">{item.description}</p>
+                    <h5 class="card-title">{item.price}&nbsp;&nbsp; ₹</h5>
+                    <h5 class="card-title">{item.area}&nbsp;&nbsp;SqFt</h5>
+                    <hr></hr>
+                    
+                    <button className="btn btn-dark" onClick={()=>showOwnertDetails(item.id)}>Contact Owner</button><br></br><br></br>
+                    {dateFlag==="true"&&(<input type="date" name="dates" onChange={datechange}></input>)}<br></br><br></br>
+                    <button className="btn btn-dark" onClick={()=>bookAppointment(item.id)}>Book appointment</button><br></br>
+                    <a onClick={() => removeCartItem(item.id)}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                      </svg></a> &nbsp;
+                  </div>
+                </div>
+                </div>
                 ))
                   }
+                  </div>
+                  </div><br></br><br></br><br></br>
+                  <a href="/">
+          <Button color="dark">Search for More Properties</Button>
+          </a>
         </Container>
       </div>
-      <div>
+      {/* <div>
         <a href="/Address" >
           <Button color="success">Check Out</Button>
         </a>{" "}
         <Button color="primary" onClick={emptyCart}>
           Empty Cart
         </Button>
-      </div>
+      </div> */}
       </>}
+      <br></br>
       <Footer />
     </div>
 

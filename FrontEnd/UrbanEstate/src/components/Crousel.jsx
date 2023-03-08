@@ -10,7 +10,7 @@ import {
 const items = [
   {
     // src: '../images/123.jpg',
-    src : "",
+    src : "https://www.google.com/imgres?imgurl=https%3A%2F%2Fimg.freepik.com%2Fpremium-photo%2Fperson-holding-small-house-model-real-estate-agent-offer-house-property-insurance-security-concept-wide-banner-composition-with-bokeh-background-copy-space_528263-2843.jpg&imgrefurl=https%3A%2F%2Fwww.freepik.com%2Fpremium-photo%2Fperson-holding-small-house-model-real-estate-agent-offer-house-property-insurance-security-concept-wide-banner-composition-with-bokeh-background-copy-space_26483324.htm&tbnid=8M_6x7cRZnHaaM&vet=12ahUKEwjbtOOI9cf9AhWkHLcAHevsC68QMygAegUIARC6AQ..i&docid=zFJIIDRsQ_fy6M&w=626&h=245&q=real%20estate%20sliding%20images%20photos%20wide&ved=2ahUKEwjbtOOI9cf9AhWkHLcAHevsC68QMygAegUIARC6AQ",
     //altText: 'Slide 1',
     //caption: 'Slide 1',
     key: 1,

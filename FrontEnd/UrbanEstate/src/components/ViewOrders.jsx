@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Table, Container,Form, Row,Col,FormGroup,Label,Input,handleChange, Button} from "reactstrap";
-import Footer from "./Footer";
+import Footer from "./footer/Footer";
 import Header from "./Header";
 import ProductDetails from "./ProductDetails";
 

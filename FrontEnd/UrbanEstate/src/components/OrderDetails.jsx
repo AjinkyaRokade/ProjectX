@@ -4,7 +4,7 @@ import React from "react";
 import { useState,useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Card, CardHeader, Container, Table } from "reactstrap";
-import Footer from "./Footer";
+import Footer from "./footer/Footer";
 import Header from "./Header";
 
 

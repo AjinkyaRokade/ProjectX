@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Button, Card, Container } from "reactstrap";
-import Footer from "./Footer";
+import Footer from "./footer/Footer";
 import Header from "./Header";
 //import SideBar from "../components/sidebar/Sidebar"
 import {

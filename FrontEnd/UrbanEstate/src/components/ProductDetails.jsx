@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Button, Card, CardTitle, Container } from "reactstrap";
-import Footer from "./Footer";
+import Footer from "./footer/Footer";
 import Header from "./Header";
 import './Home.css';
 
@@ -48,7 +48,7 @@ const ProductDetails=()=>{
                     </div>
                     </Card>
                     <div style={{margin:"30px"}}>
-                    <Button size="lg" color="link" onClick={sendBack}> Back</Button>
+                    <Button size="lg" className="btn btn-dark" onClick={sendBack}> Back</Button>
                     </div>
                     
                 </Container>

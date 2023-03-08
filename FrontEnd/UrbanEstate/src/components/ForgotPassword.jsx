@@ -1,6 +1,6 @@
 import React from "react";
 import { Form, FormGroup, Label, Input, FormFeedback } from "reactstrap";
-import Footer from "./Footer";
+import Footer from "./footer/Footer";
 import Header from "./Header";
 import { useState } from "react";
 import axios from "axios";
@@ -64,7 +64,7 @@ const ForgotPassword = () => {
       <Header></Header>
       <div className="Login">
         <div className="Auth-form-container">
-          <form className="Auth-form" onSubmit={handleSubmit}>
+          <form className="Auth-form" onSubmit={handleSubmit} style={{margin:"auto"}}>
             <h3 className="Auth-form-title">Let's Reset Your Password</h3>
             <div className="form-group mt-3"></div>
             <label>Step 1: Enter Email address</label>

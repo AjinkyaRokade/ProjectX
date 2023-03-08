@@ -3,14 +3,14 @@ import AllProperties from "./AllProperties";
 import Products from "./Products";
 import Header from "./Header";
 import "./Home.css";
-import Footer from "./Footer";
+import Footer from "./footer/Footer";
 import Login from "./Login";
 import SignUp from "./SignUp";
 import Example from "./Header";
 import Crousel from "./Crousel";
 import { useNavigate } from "react-router-dom";
 import Admin from './Admin';
-
+import Featured from "./featured/Featured"
 const Home = () => {
   let userRole = JSON.parse(sessionStorage.getItem("user"));
   
@@ -30,12 +30,18 @@ const Home = () => {
         <div>
           <Header />
           <div className="title" style={{ margin: "50px" }}>
-            <h2>Welcome to MediKart </h2>
           </div>
-          <Crousel></Crousel>
+          {!sessionStorage.getItem("token")&&
+          <Crousel></Crousel>}
+          {!sessionStorage.getItem("token")&&
+          <Featured></Featured>}
+          {/* {sessionStorage.getItem("token")&& */}
           <AllProperties />
           {/* <Login/> 
                 <SignUp/>  */}
+                <br></br>
+                <br></br>
+                <br></br>
           <Footer />
         </div>
       }

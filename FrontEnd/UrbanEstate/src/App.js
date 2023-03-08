@@ -25,6 +25,8 @@ import OrderDetails from './components/OrderDetails';
 import ContactUs from './components/ContactUs';
 import Admin from './components/Admin';
 import AddShipment from './components/AddShipment';
+import OwnerDetails from './components/OwnerDetails';
+import Appointments from './components/Appointments';
 function App() {
   
   
@@ -33,7 +35,7 @@ function App() {
      <Routes>
         <Route exact path="/" element={<Home/>}/>
         <Route exact path="/Login" element={<Login/>}/>
-        <Route exact path="/SignUp" element={<SignUp/>}/>
+        <Route exact path="/SignUpUser" element={<SignUp/>}/>
         <Route exact path="/Wishlist" element={<AllCartItems/>}/>
         <Route exact path="/AboutUs" element={<AboutUs/>}/>
         <Route exact path='/Address' element={<Address/>}/>
@@ -49,6 +51,8 @@ function App() {
         <Route exact path='/OrderDetails/:id' element={<OrderDetails/>}/>
         <Route exact path='/Admin' element={<Admin/>}/>
         <Route exact path='/AddShipment' element={<AddShipment/>}/>
+        <Route exact path='/OwnerDetails/:id' element={<OwnerDetails/>}/>
+        <Route exact path='/Appointments' element={<Appointments/>}/>
        
      </Routes>
      <ToastContainer position='top-right' autoClose={4000}/> 

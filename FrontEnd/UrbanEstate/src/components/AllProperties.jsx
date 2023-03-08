@@ -25,6 +25,7 @@ const [search,setSearch]=useState([]);
     
 
     useEffect(()=>{
+        
         getAllproperties();
        },[]);
 
@@ -45,18 +46,17 @@ const [search,setSearch]=useState([]);
 
     const [properties,setProperties]=useState([])
 return(
-    <div >
+    <div > 
         <Container>
-        
-
         <div  class="input-group rounded" style={{margin:"50px",}} dark >
                 <input
                   type="search"
                   class="form-control rounded"
-                  placeholder="Search your required medicine here"
+                  placeholder="Search Properties in your city"
                   aria-label="Search"
                   aria-describedby="search-addon"
                   onChange={searchItemByCity}/>
+                <button className='btn btn-dark'>Search</button>
                   
               </div>
               <h3 style={{"color":"Black"}}>Recently Added properties</h3>
@@ -73,6 +73,8 @@ return(
             ? search.map((item)=><div className='Allcards'><Products  prop={item}/></div> )
             :<div className='title'><h1>Sorry! Server is Down... Please try again later.</h1></div>
         }
+        <br></br>
+        <button className='btn btn-success' ><a href='/Wishlist' style={{color:"white", textDecoration:"none"}}>Go to wishlist</a></button>
     </div>
 )
 }

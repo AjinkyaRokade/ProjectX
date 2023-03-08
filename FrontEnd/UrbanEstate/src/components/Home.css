@@ -7,24 +7,23 @@
     background-size : cover;
     height: 3000px;;
     width: 100%;
-    color: rgb(195, 234, 249);
     margin-bottom: 100px;
-    background-color: rgb(161, 180, 199);
+
 }
 .title{
     font-weight: bold;  
     font-size: 18px;
-    color: rgb(17, 17, 17);
+    color: #272525;
 }
 .body{
     
-    color: black;
+    color: #272525;;
 }
 
 .footer{
     margin-top: 1rem;
     padding: 1.5rem;
-    background-color: #3f3c3c;
+    background-color: #272525;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -47,12 +46,13 @@
   }
   
   .Auth-form {
-    width: 420px;
+    width: 600px;
     box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
     padding-top: 30px;
     padding-bottom: 20px;
     border-radius: 8px;
     background-color: white;
+    
   }
   
   .Auth-form-content {
@@ -71,27 +71,22 @@
   label {
     font-size: 14px;
     font-weight: 600;
-    color: rgb(34, 34, 34);
+    color: #272525;;
   }
   
   .Login{
-
-    background-image: url("../images/p-1.jpg");
-    background-size: "cover";
     height: 100%;
     width: 100%;
     /* margin-top: -70px; */
     /* font-size:50px; */
-    background-repeat:no-repeat;
+ 
     
   }
 
   .SignUp{
-    background-image: url("../images/p-2.jpg");
-    background-size: "cover";
+    
     height: 100%;
     width: 100%;
-    ;
     /* font-size:50px; */
     background-repeat:no-repeat;
 

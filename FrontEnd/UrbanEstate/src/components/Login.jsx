@@ -7,7 +7,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 
 import {navigate, useNavigate} from "react-router-dom";
 import Header from "./Header";
-import Footer from "./Footer";
+import Footer from "./footer/Footer";
 import { toast } from "react-toastify";
 
 const Login = () => {
@@ -58,13 +58,17 @@ const handleSubmit = (e) =>
         sessionStorage.setItem("user", JSON.stringify(response.data.user));
         
         let user=JSON.parse(sessionStorage.getItem("user"));
-        sessionStorage.setItem("userRole",JSON.stringify(user.role));
+        sessionStorage.setItem("userRole",JSON.stringify(user.userRole));
         console.log(sessionStorage.getItem("userRole"))
         let uR=sessionStorage.getItem("userRole")
         console.log(uR)
         if(uR.includes('ROLE_ADMIN')){
           navigate('/Admin');
-        }else{
+        }
+        if(uR.includes('ROLE_OWNER')){
+          navigate('/Owner');
+        }
+        else{
           navigate("/");
         }
         sessionStorage.setItem("userID",user.id);
@@ -86,7 +90,7 @@ return (
       <Header></Header>
         <div className="Login" >
           <div className="Auth-form-container">
-          <form className="Auth-form" onSubmit={handleSubmit}>
+          <form className="Auth-form" onSubmit={handleSubmit} style={{margin:"auto"}}>
           <h3 className="Auth-form-title">Sign In</h3>
           <div className="form-group mt-3"></div>
           <label>Email address</label>
@@ -96,7 +100,7 @@ return (
                 value={data.email}
                 onChange={handleChange}
                 className="form-control mt-1"
-                placeholder="Enter Email"
+                placeholder="Enter Email" style={{width:"400px" ,margin:"auto"}}
               />
               <div className="form-group mt-3" >
               <label style={{textAlign : 'left'}}>Password</label>
@@ -106,13 +110,13 @@ return (
                     value={data.password}
                     onChange={handleChange}
                     className="form-control mt-1"
-                    placeholder="Enter Password"
+                    placeholder="Enter Password" style={{width:"400px" ,margin:"auto"}}
                   />
                 </div>
-                <div style={{marginLeft: "20px", marginTop:"10px"}}>
+                <div style={{marginLeft: "150px", marginTop:"20px"}}>
                 <ReCAPTCHA
               sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
-              onChange={handleChangeRecaptcha}
+              onChange={handleChangeRecaptcha} style={{}}
             />
                 </div>
                 

@@ -199,9 +199,9 @@ const Header = () => {
     userName = user.firstName;
   }
   return (
-    <Navbar collapseOnSelect expand="lg" bg="black" variant="dark" >
-      <Navbar.Brand href="/" style={{ marginLeft: "20px" }}>
-       <img src={require("../images/logo.jpg")} height={"100px"} width={"230px"} alt="" />
+    <Navbar collapseOnSelect expand="lg" bg="black" variant="dark">
+      <Navbar.Brand href="/" style={{ marginLeft: "40px" }}>
+       <img src={require("../images/logo.jpg")} height={"70px"} width={"180px"} alt=""  />
       </Navbar.Brand>
 
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -248,7 +248,10 @@ const Header = () => {
         {!sessionStorage.getItem("token") && (
           <Nav className="me-auto" >
             <NavItem style={{ marginLeft: "50px"}}>
-              <Nav.Link href="./SignUp"><b>Register</b></Nav.Link>
+              <Nav.Link href="./SignUpUser"><b>Register As User</b></Nav.Link>
+            </NavItem>
+            <NavItem style={{ marginLeft: "50px"}}>
+              <Nav.Link href="./SignUpSeller"><b>Register As Seller</b></Nav.Link>
             </NavItem>
             <NavItem style={{ marginLeft: "50px" }}>
               <Nav.Link href="./Login"><b>Login</b></Nav.Link>
@@ -270,6 +273,14 @@ const Header = () => {
             !(userRole.role === "ROLE_ADMIN") && (
               <NavItem style={{ marginLeft: "50px", marginRight: "10px" }}>
                 <Nav.Link href="/AboutUs"><b>AboutUs</b></Nav.Link>
+              </NavItem>
+            )}
+        </Nav>
+        <Nav>
+          {sessionStorage.getItem("token") &&
+            !(userRole.role === "ROLE_ADMIN") && (
+              <NavItem style={{ marginLeft: "50px", marginRight: "10px" }}>
+                <Nav.Link href="/Appointments"><b>Appointments</b></Nav.Link>
               </NavItem>
             )}
         </Nav>
