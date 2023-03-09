@@ -31,14 +31,13 @@ const Home = () => {
           <Header />
           <div className="title" style={{ margin: "50px" }}>
           </div>
+          <h1 style={{fontFamily:"fantasy"}}>Search for your Properties ends here..</h1>
           {!sessionStorage.getItem("token")&&
           <Crousel></Crousel>}
           {!sessionStorage.getItem("token")&&
           <Featured></Featured>}
           {/* {sessionStorage.getItem("token")&& */}
           <AllProperties />
-          {/* <Login/> 
-                <SignUp/>  */}
                 <br></br>
                 <br></br>
                 <br></br>

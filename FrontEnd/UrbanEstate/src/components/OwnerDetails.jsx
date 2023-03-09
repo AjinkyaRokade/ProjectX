@@ -51,7 +51,10 @@ const OwnerDetails = ({ }) => {
     <h5 class="card-title">Name:{owner.firstName}&nbsp;{owner.lastName}</h5>
     <p><strong>Email:</strong> {owner.email}</p>
     <p><strong>Phone:</strong> {owner.contactNumber}</p>  </div>
+    <br></br>
+   
 </div>
+<button className='btn btn-dark'><a href='/Wishlist' style={{color:"white", textDecoration:"none"}}>Back</a></button> <br></br> <br></br>
     <Footer/>
     </div>
   );

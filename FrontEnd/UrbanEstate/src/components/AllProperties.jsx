@@ -59,7 +59,7 @@ return(
                 <button className='btn btn-dark'>Search</button>
                   
               </div>
-              <h3 style={{"color":"Black"}}>Recently Added properties</h3>
+              <h3 style={{"color":"Black", fontFamily:"fantasy"}}>Recently Added properties</h3>
               </Container>
         <div style={{marginTop:"50px",backgroundColor:"color: white "}}>
         {/* rgb(202, 233, 252) */}

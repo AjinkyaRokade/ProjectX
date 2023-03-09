@@ -11,7 +11,6 @@ import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Wishlist from './components/Wishlist';
 import { Container } from 'reactstrap';
-import Address from './components/Address';
 import AboutUs from './components/AboutUs';
 import InjectedCheckoutForm from './components/CheckoutForm';
 import UpdatePassword from './components/UpdatePassword';
@@ -37,7 +36,6 @@ function App() {
         <Route exact path="/SignUpUser" element={<SignUp/>}/>
         <Route exact path="/Wishlist" element={<Wishlist/>}/>
         <Route exact path="/AboutUs" element={<AboutUs/>}/>
-        <Route exact path='/Address' element={<Address/>}/>
         <Route exact path='/ChekoutForm' element={<InjectedCheckoutForm/>}/>
         <Route exact path='/updatepassword' element={<UpdatePassword/>}/>
         <Route exact path='/ViewOrders' element={<ViewOrders/>}/>
@@ -48,7 +46,6 @@ function App() {
         <Route exact path='/PropertyDetails/:id' element={<ProductDetails/>}/>
         <Route exact path='/OrderDetails/:id' element={<OrderDetails/>}/>
         <Route exact path='/Admin' element={<Admin/>}/>
-        <Route exact path='/AddShipment' element={<AddShipment/>}/>
         <Route exact path='/OwnerDetails/:id' element={<OwnerDetails/>}/>
         <Route exact path='/Appointments' element={<Appointments/>}/>
        

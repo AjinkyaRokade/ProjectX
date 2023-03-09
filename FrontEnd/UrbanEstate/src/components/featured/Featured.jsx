@@ -7,7 +7,8 @@ const Featured = () => {
     <>
       <section className='featured background'>
         <div className='container'>
-          <h2 >Featured Property Types</h2><br></br><br></br>
+        <br></br><br></br>
+          <h2 style={{fontFamily:"fantasy"}}>Featured Property Types</h2><br></br><br></br>
           <FeaturedCard />
         </div>
       </section>

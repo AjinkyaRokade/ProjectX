@@ -10,23 +10,23 @@ import {
 const items = [
   {
     // src: '../images/123.jpg',
-    src : "https://i.pinimg.com/originals/10/e5/85/10e585db9cf2a39893f5814982024404.jpg",
-    //altText: 'Slide 1',
-    //caption: 'Slide 1',
-    key: 1,
-  },
-  {
+  //   src : "https://i.pinimg.com/originals/10/e5/85/10e585db9cf2a39893f5814982024404.jpg",
+  //   //altText: 'Slide 1',
+  //   //caption: 'Slide 1',
+  //   key: 1,
+  // },
+  // {
     src: 'https://pngimg.com/d/building_PNG33.png',
     //altText: 'Slide 2',
     //caption: 'Slide 2',
     key: 2,
   },
-  {
-    src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR750JET2xMXKBICvC4aOxKD4zdcCYBFVFCQ-_o33llCsdBSp3hg6d3eN1vlLB8-8t9Tw&usqp=CAU',
-    // altText: 'Slide 3',
-    // caption: 'Slide 3',
-    key: 3,
-  }
+  // {
+  //   src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR750JET2xMXKBICvC4aOxKD4zdcCYBFVFCQ-_o33llCsdBSp3hg6d3eN1vlLB8-8t9Tw&usqp=CAU',
+  //   // altText: 'Slide 3',
+  //   // caption: 'Slide 3',
+  //   key: 3,
+  // }
   // ,
   // {
   //   src: {

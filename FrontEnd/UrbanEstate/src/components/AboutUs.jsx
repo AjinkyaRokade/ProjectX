@@ -15,31 +15,27 @@ import {
 } from "reactstrap";
 const AboutUs = () => {
   return (
-    <div style={{ backgroundColor: "rgb(202, 233, 252)" }}>
+    <div >
       <Header />
       <Container>
         <div className="fluid-container row" style={{ alignItems: "left" }}>
           {/* First Card */}
-          <div style={{width: "1000px",height:"500px",alignContent:"center",marginBlock:"100px"}}>
-            <Card color="transparent">
-              <CardTitle>UrbanEstate</CardTitle>
-              <CardText>
-              </CardText>  
-            </Card>
+          <div >
+            
+              <CardTitle><h1 style={{marginTop:"20px"}}>UrbanEstate</h1></CardTitle>
+             
           </div>
           <Card
             style={{
               backgroundColor: "transparent",
               color: "light",
               width: "25rem",
-              height: "40rem",
+             border:"none",
               padding: "20px",
-              margin: "50px",
+              marginLeft:"150px",
+              margin: "100px",
             }}
           >
-
-            <img src={require("../images/Photo.jpg")} style={{height:"350px"}}></img>
-
             <h5 className="mt-2">Ajinkya Rokade</h5>
             <CardText className="mb-2 text-muted">Business Partner</CardText>
             <CardText className="mb-2 text-muted">
@@ -55,26 +51,23 @@ const AboutUs = () => {
               backgroundColor: "transparent",
               color: "light",
               width: "25rem",
-              height: "40rem",
+             border:"none",
               padding: "20px",
-              margin: "50px",
+              margin: "100px",
             }}
           >
-
-            <img src={require("../images/Photo.jpg")}></img>
-
-            <h5 className="mt-2">Suyash Patil</h5>
+            <h5 className="mt-2">Nikhil Dhage</h5>
             <CardText className="mb-2 text-muted">Business Partner</CardText>
             <CardText className="mb-2 text-muted">
               Phone: +91-9881020917
             </CardText>
             <CardText className="mb-2 text-muted">
-              Email: psuyash4@gmail.com
+              Email: nikhildhage1@gmail.com
             </CardText>
           </Card>
         </div>
       </Container>
-
+            <br></br><br></br><br></br>
       <Footer />
     </div>
   );
