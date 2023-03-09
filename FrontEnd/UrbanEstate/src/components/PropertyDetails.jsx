@@ -10,7 +10,7 @@ import './Home.css';
 
 
 
-const ProductDetails=()=>{
+const PropertyDetails=()=>{
     let navigate=useNavigate();
     const sendBack=()=>{
         navigate('/');
@@ -56,6 +56,6 @@ const ProductDetails=()=>{
         </div>
     )
 }
-export default ProductDetails;
+export default PropertyDetails;
 
 //{product.productName}

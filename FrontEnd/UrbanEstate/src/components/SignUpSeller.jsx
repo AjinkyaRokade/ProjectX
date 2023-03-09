@@ -10,7 +10,7 @@ import Footer from "./footer/Footer";
 import { toast } from "react-toastify";
 
 
-const SignUp = () => {
+const SignUpSeller = () => {
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -44,7 +44,7 @@ const handleChange = (e) => {
 };
 
 let navigate=useNavigate();
-const USER_API_BASE_URL = "http://localhost:8080/api/auth/buyer/signup";
+const USER_API_BASE_URL = "http://localhost:8080/api/auth/owner/signup";
 const handleSubmit = (e) =>
 {
   e.preventDefault();
@@ -225,6 +225,6 @@ console.log(error.response),
   );
 
 }
-export default SignUp;
+export default SignUpSeller;
 
   

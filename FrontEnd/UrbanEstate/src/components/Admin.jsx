@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { Button, Card, Container } from "reactstrap";
 import Footer from "./footer/Footer";
 import Header from "./Header";
-//import SideBar from "../components/sidebar/Sidebar"
 import {
     LineChart,
     Line,
@@ -17,76 +16,75 @@ import {
     BarChart,
     Bar,
   } from "recharts";
+import AllProperties from "./AllProperties";
 
 const Admin = () => {
   let navigate = useNavigate();
   const data = [
     {
       "name": "JAN",
-      "ES": 4000,
-      "AS": 2400,
+      
+      "UC": 2400,
       "amt": 2400
     },
     {
       "name": "FEB",
-      "ES": 3000,
-      "AS": 1398,
+      "UC": 1398,
       "amt": 2210
     },
     {
       "name": "MAR",
-      "ES": 2000,
-      "AS": 9800,
+      "UC": 9800,
       "amt": 2290
     },
     {
       "name": "APR",
-      "ES": 2780,
-      "AS": 3908,
+      
+      "UC": 3908,
       "amt": 2000
     },
     {
       "name": "MAY",
-      "ES": 1890,
-      "AS": 4800,
+      
+      "UC": 4800,
       "amt": 2181
     },
     {
       "name": "JUN",
-      "ES": 2390,
-      "AS": 3800,
+      
+      "UC": 3800,
       "amt": 2500
     },
     {
       "name": "JUL",
-      "ES": 3490,
-      "AS": 4300,
+     
+      "UC": 4300,
       "amt": 2100
     },
     {
         "name": "AUG",
-        "ES": 3900,
-        "AS": 4000,
+        
+        "UC": 4000,
         "amt": 3300
       }
   ]
   const addShipment = () => {};
   return (
-    <div style={{backgroundColor:"rgb(195, 234, 249)",backgroundRepeat:"no-repeat",backgroundSize:" 1000px"}} >
+    <div style={{backgroundRepeat:"no-repeat",backgroundSize:" 1000px", margin:"auto"}} >
 
       <Header />
 
-      <div style={{ margin: "50px" }}>
+      <div style={{ margin: "auto" }}>
         <Container>
-          <Card style={{height:"1500px",background:"transparent"}}>
+          <Card style={{height:"300px",background:"transparent"}}>
         <div>
-            <h1>Yearly Sales review</h1>
+            <h1>Yearly Traffic</h1>
         </div>
         <AreaChart
           width={1000}
           height={250}  
           data={data}
-          margin={{ top: 10, right: 30, left: 50, bottom: 0 }}
+          style={{margin:"auto"}}
         >
           <defs>
             <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
@@ -104,21 +102,16 @@ const Admin = () => {
           <Tooltip />
           <Area
             type="monotone"
-            dataKey="ES"
+            dataKey="UC"
             stroke="#8884d8"
             fillOpacity={1}
             fill="url(#colorUv)"
           />
-          <Area
-            type="monotone"
-            dataKey="AS"
-            stroke="#82ca9d"
-            fillOpacity={1}
-            fill="url(#colorPv)"
-          />
+         
         </AreaChart>
         </Card>
         </Container>
+        <AllProperties></AllProperties>
       </div>
       <Footer />
     </div>

@@ -61,11 +61,11 @@ const handleSubmit = (e) =>
         sessionStorage.setItem("userRole",JSON.stringify(user.userRole));
         console.log(sessionStorage.getItem("userRole"))
         let uR=sessionStorage.getItem("userRole")
-        console.log(uR)
-        if(uR.includes('ROLE_ADMIN')){
+        console.log("Result "+uR.includes("ROLE_ADMIN"));
+        if(uR.includes("ROLE_ADMIN")){
           navigate('/Admin');
         }
-        if(uR.includes('ROLE_OWNER')){
+        else if(uR.includes('ROLE_OWNER')){
           navigate('/Owner');
         }
         else{

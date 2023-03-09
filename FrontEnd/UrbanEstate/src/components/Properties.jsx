@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
@@ -18,6 +18,9 @@ import {
 
 const USER_API_BASE_URL = "http://localhost:8080/";
 const Properties = ({ prop }) => {
+
+  let counter=2;
+  const [owner, setOwner]=useState({id:""});
   const sendId = (id) => {
     navigate("/PropertyDetails/"+id);
   };
@@ -45,6 +48,39 @@ const Properties = ({ prop }) => {
       navigate("/Login");
     }
   };
+
+  const RemoveHandler = (id) => {
+    // if (userRole.role === "ROLE_ADMIN") {
+    //   navigate("/Admin");
+    // } 
+    let token= sessionStorage.getItem("token");
+    if (sessionStorage.getItem("token")) {
+      console.log("user is logged in");
+      let URL="http://localhost:8080/owner/get/"+id;
+      axios.get(URL,{
+        headers:{
+            Authorization:token
+        }
+     }).then(
+        (response)=>{
+        console.log(response.data)
+        setOwner(response.data)
+        }
+     )
+  
+
+      axios.delete(USER_API_BASE_URL+"owner/property/"+owner.id+"/"+id).then((res) => {
+        console.log(res.data);
+        toast.success("Property Removed Successfully");
+        window.location.reload();
+      });
+    } else {
+      console.log("user is not logged in");
+      // alert("Kindly Login First");
+      toast.warning("Kindly Login First");
+      navigate("/Login");
+    }
+  };
   return (
     <div style={{ backgroundColor: "transparent" }}>
       <Card
@@ -61,7 +97,7 @@ const Properties = ({ prop }) => {
         <CardSubtitle className="title">
           <a href="/PropertyDetails"></a> {prop.propType}
         </CardSubtitle>
-        <img alt="Sample" className="cardImage" src={require("../images/p-2.jpg")} />
+        <img alt="Sample" className="cardImage" src={require("../images/p-"+{counter}+".jpg")} />
         <span style={{ background: prop.propertyFor === "SELL" ? "#25b5791a" : "#ff98001a", color: prop.propertyFor === "SELL" ? "#25b579" : "#ff9800", width:"50px", margin:"auto" }}><b>{prop.propertyFor}</b></span>
         <CardText className="body"><b>{prop.description} </b></CardText>
         <CardText className="body"><b>{prop.area} &nbsp;Sqft</b></CardText>
@@ -74,7 +110,8 @@ const Properties = ({ prop }) => {
        </Card>
        {(sessionStorage.getItem("token") && sessionStorage.getItem("userRole").includes("ADMIN")) 
        ?
-       <></>
+       <button className="btn btn-warning" onClick={()=>RemoveHandler(prop.id)}
+       >Remove</button>
       
       :<Button
       style={{ margin: "5px" }}

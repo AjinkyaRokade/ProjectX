@@ -68,13 +68,15 @@ return(
         {/* {Product.map((item) => {
             return (<Products prod={item}/>)
         })} */}
+        
         {
             properties.length > 0
             ? search.map((item)=><div className='Allcards'><Properties  prop={item}/></div> )
-            :<div className='title'><h1>Sorry! Server is Down... Please try again later.</h1></div>
+            :<div className='title'><h1>Nothing to show here..</h1></div>
         }
         <br></br>
-        <button className='btn btn-success' ><a href='/Wishlist' style={{color:"white", textDecoration:"none"}}>Go to wishlist</a></button>
+        {(sessionStorage.getItem("token") && sessionStorage.getItem("userRole").includes("ADMIN"))?<></>:(
+        <button className='btn btn-success' ><a href='/Wishlist' style={{color:"white", textDecoration:"none"}}>Go to wishlist</a></button>)}
     </div>
 )
 }

@@ -184,7 +184,8 @@ import {
 const Header = () => {
   const [Interval, setInterval] = useState([]);
   let userRole = JSON.parse(sessionStorage.getItem("user"));
-  console.log(userRole);
+  // console.log("ajdjk"+userRole.userRole);
+  // let role=JSON.stringify(userRole.userRole);
   const clearSession = () => {
     setInterval(() => {
       toast.success("You Have been Succesfully Signed Out");
@@ -207,27 +208,24 @@ const Header = () => {
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav>
-          {sessionStorage.getItem("token") && userRole.role === "ROLE_ADMIN" && (
+          {sessionStorage.getItem("token") && userRole.userRole.includes("ROLE_ADMIN") && (
             <NavItem
               className="userNav"
               style={{ alignContent: "right", marginLeft: "1300px" }}
             >
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
-                  Welcome Admin
+                  Welcome {userRole.firstName}
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem href="/AddShipment">
-                    Add new Shipment
+                    Verify Property
                   </DropdownItem>
                   <DropdownItem href="/SupplierList">
                     Add new Supplier
                   </DropdownItem>
-                  <DropdownItem href="/AddnewDB">
-                    Add new Dilevery Boy
-                  </DropdownItem>
                   <DropdownItem divider />
-                  <DropdownItem>Get list of Customers</DropdownItem>
+                  <DropdownItem>Get list of Owners</DropdownItem>
                   <DropdownItem href="./" onClick={clearSession}>
                     Sign Out
                   </DropdownItem>
@@ -237,13 +235,13 @@ const Header = () => {
           )}
         </Nav>
 
-        <Nav>
-          {sessionStorage.getItem("token") && userRole.role === "ROLE_ADMIN" && (
+        {/* <Nav>
+          {sessionStorage.getItem("token") && userRole.userRole === "ROLE_ADMIN" && (
             <NavItem>
               <Nav.Link href="./Admin">Dashboard</Nav.Link>
             </NavItem>
           )}
-        </Nav>
+        </Nav> */}
 
         {!sessionStorage.getItem("token") && (
           <Nav className="me-auto" >
@@ -261,7 +259,7 @@ const Header = () => {
 
         <Nav>
           {sessionStorage.getItem("token") &&
-            !(userRole.role === "ROLE_ADMIN") && (
+            !(userRole.userRole === "ROLE_ADMIN") && (
               <NavItem style={{ marginLeft: "100px" }}>
                 <Nav.Link href="/Wishlist"><b>Wishlist</b></Nav.Link>
               </NavItem>
@@ -270,7 +268,7 @@ const Header = () => {
 
         <Nav>
           {sessionStorage.getItem("token") &&
-            !(userRole.role === "ROLE_ADMIN") && (
+            !(userRole.userRole === "ROLE_ADMIN") && (
               <NavItem style={{ marginLeft: "50px", marginRight: "10px" }}>
                 <Nav.Link href="/AboutUs"><b>AboutUs</b></Nav.Link>
               </NavItem>
@@ -278,7 +276,7 @@ const Header = () => {
         </Nav>
         <Nav>
           {sessionStorage.getItem("token") &&
-            !(userRole.role === "ROLE_ADMIN") && (
+            !(userRole.userRole =="ROLE_ADMIN") && (
               <NavItem style={{ marginLeft: "50px", marginRight: "10px" }}>
                 <Nav.Link href="/Appointments"><b>Appointments</b></Nav.Link>
               </NavItem>
