@@ -105,9 +105,9 @@ const UpdatePassword = () => {
                     </Col>
                 </Row>
                 </Form> */}
-        <div className="Login">
+        <div className="Login" >
           <div className="Auth-form-container">
-            <form className="Auth-form" onSubmit={handleSubmit}>
+            <form className="Auth-form" onSubmit={handleSubmit} style={{margin:"auto"}}>
               <h3 className="Auth-form-title">Update Password</h3>
               <div className="form-group mt-3"></div>
               <label>Email address</label>
@@ -118,7 +118,7 @@ const UpdatePassword = () => {
                 onChange={handleChange}
                 className="form-control mt-1"
                 placeholder={(JSON.parse(sessionStorage.getItem("user"))).email}
-                disabled
+                disabled style={{width:"400px" ,margin:"auto"}}
               />
               <div className="form-group mt-3">
                 <label style={{ textAlign: "left" }}>Old Password</label>
@@ -128,7 +128,7 @@ const UpdatePassword = () => {
                   value={data.oldPassword}
                   onChange={handleChange}
                   className="form-control mt-1"
-                  placeholder="Enter Password"
+                  placeholder="Enter Password" style={{width:"400px" ,margin:"auto"}}
                 />
               </div>
               <div className="form-group mt-3">
@@ -139,7 +139,7 @@ const UpdatePassword = () => {
                   value={data.newPassword}
                   onChange={handleChange}
                   className="form-control mt-1"
-                  placeholder="Enter new Password"
+                  placeholder="Enter new Password" style={{width:"400px" ,margin:"auto"}}
                 />
               </div>
               <div className="form-group mt-3">
@@ -150,7 +150,7 @@ const UpdatePassword = () => {
                   //value={data.password}
                   onChange={handleChange}
                   className="form-control mt-1"
-                  placeholder="Confirm new Password"
+                  placeholder="Confirm new Password" style={{width:"400px" ,margin:"auto"}}
                 />
               </div>
 

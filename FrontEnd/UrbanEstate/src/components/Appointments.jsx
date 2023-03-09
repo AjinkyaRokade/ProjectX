@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Footer from "./footer/Footer";
 import Header from "./Header";
+import { toast } from 'react-toastify';
 const Appointments =()=>{
 
     let token = sessionStorage.getItem("token");
@@ -24,7 +25,9 @@ const Appointments =()=>{
             Authorization:token
         }}).then((response)=>{
             console.log(response.data)
+            
             window.location.reload();
+            toast.success("Appointment has been cancelled");
            
         })
     }

@@ -97,7 +97,7 @@ const Properties = ({ prop }) => {
         <CardSubtitle className="title">
           <a href="/PropertyDetails"></a> {prop.propType}
         </CardSubtitle>
-        <img alt="Sample" className="cardImage" src={require("../images/p-"+{counter}+".jpg")} />
+        <img alt="Sample" style={{margin:"auto"}} className="cardImage" src={require("../images/p-4.png")} />
         <span style={{ background: prop.propertyFor === "SELL" ? "#25b5791a" : "#ff98001a", color: prop.propertyFor === "SELL" ? "#25b579" : "#ff9800", width:"50px", margin:"auto" }}><b>{prop.propertyFor}</b></span>
         <CardText className="body"><b>{prop.description} </b></CardText>
         <CardText className="body"><b>{prop.area} &nbsp;Sqft</b></CardText>
@@ -108,6 +108,7 @@ const Properties = ({ prop }) => {
         <CardText className="body"><b>{prop.address.city}</b></CardText>
        <br></br>
        </Card>
+       <br></br>
        {(sessionStorage.getItem("token") && sessionStorage.getItem("userRole").includes("ADMIN")) 
        ?
        <button className="btn btn-warning" onClick={()=>RemoveHandler(prop.id)}

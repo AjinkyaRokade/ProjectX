@@ -11,6 +11,7 @@ const USER_API_BASE_URL = "http://localhost:8080/properties";
 
 const AllProperties=()=>{
 
+    let Counter=2;
 const [search,setSearch]=useState([]);
     const searchItemByCity=(e)=>{
 
@@ -71,7 +72,8 @@ return(
         
         {
             properties.length > 0
-            ? search.map((item)=><div className='Allcards'><Properties  prop={item}/></div> )
+            ? search.map((item)=><div className='Allcards'><Properties  prop={item}/></div> 
+            )
             :<div className='title'><h1>Nothing to show here..</h1></div>
         }
         <br></br>

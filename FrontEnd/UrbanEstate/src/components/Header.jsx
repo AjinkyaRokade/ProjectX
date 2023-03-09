@@ -307,7 +307,7 @@ const Header = () => {
                   <DropdownItem href="/updatePassword">
                     Update Password
                   </DropdownItem>
-                  <DropdownItem href="/viewOrders">View Orders</DropdownItem>
+                  <DropdownItem href="/viewOrders">Profile</DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem>update profile</DropdownItem>
                   <DropdownItem href="./" onClick={clearSession}>
