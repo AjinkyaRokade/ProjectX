@@ -3,7 +3,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { Image } from "react-bootstrap";
 import {
   Card,
   CardBody,
@@ -97,7 +97,8 @@ const Properties = ({ prop }) => {
         <CardSubtitle className="title">
           <a href="/PropertyDetails"></a> {prop.propType}
         </CardSubtitle>
-        <img alt="Sample" style={{margin:"auto"}} className="cardImage" src={require("../images/p-4.png")} />
+        <Image src={prop.imageURL} style={{margin:"auto"}} className="cardImage"></Image>
+        {/* <img alt="Sample" style={{margin:"auto"}} className="cardImage" src={require('../images/p-2.jpg')} /> */}
         <span style={{ background: prop.propertyFor === "SELL" ? "#25b5791a" : "#ff98001a", color: prop.propertyFor === "SELL" ? "#25b579" : "#ff9800", width:"50px", margin:"auto" }}><b>{prop.propertyFor}</b></span>
         <CardText className="body"><b>{prop.description} </b></CardText>
         <CardText className="body"><b>{prop.area} &nbsp;Sqft</b></CardText>

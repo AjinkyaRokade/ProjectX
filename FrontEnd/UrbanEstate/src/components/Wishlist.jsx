@@ -139,7 +139,7 @@ const bookAppointment=(id)=>{
               { properties.map((item) => (
                 <div className="col-md">
                 <div class="card" style={{ "width": "18rem", "margin": "auto" }}>
-                  <img class="card-img-top" src={require("../images/p-3.jpg")} alt="Card image cap" />
+                  <img class="card-img-top" src={item.imageURL} alt="Card image cap" />
                   <div class="card-body">
                     <h5 class="card-title">{item.propType}</h5>
                     <span style={{ background: item.propertyFor === "SELL" ? "#25b5791a" : "#ff98001a", color: item.propertyFor === "SELL" ? "#25b579" : "#ff9800" }}>{item.propertyFor}</span>

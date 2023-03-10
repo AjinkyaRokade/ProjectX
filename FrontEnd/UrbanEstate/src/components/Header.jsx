@@ -202,7 +202,7 @@ const Header = () => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="black" variant="dark">
       <Navbar.Brand href="/" style={{ marginLeft: "40px" }}>
-       <img src={require("../images/logo.jpg")} height={"70px"} width={"180px"} alt=""  />
+       <img src={"../images/logo.jpg"} height={"70px"} width={"180px"} alt=""  />
       </Navbar.Brand>
 
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
