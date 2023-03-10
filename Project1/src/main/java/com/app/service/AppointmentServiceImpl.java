@@ -45,6 +45,9 @@ public class AppointmentServiceImpl implements AppointmentServiceInterface {
 		appointment.setProperty(property);
 		appRepo.save(appointment);
 		}
+		else if(appointment2.getStatus()==AppointmentStatus.CANCELLED) {
+			appointment2.setStatus(AppointmentStatus.PENDING);
+		}
 		else
 			throw new PropertyPolicyException("Appointment Already booked");
 		return new ResponseEntity<String>("Appointment Booked", HttpStatus.OK);

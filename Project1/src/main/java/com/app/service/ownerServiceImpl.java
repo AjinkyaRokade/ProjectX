@@ -8,12 +8,14 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.app.DTO.OwnerDTO;
 import com.app.DTO.propertyDTO;
 import com.app.Entities.Owner;
 import com.app.Entities.Property;
+import com.app.Entities.Role;
 import com.app.Repository.ownerRepository;
 import com.app.Repository.propertyRepository;
 import com.app.exception.resourceNotFoundException;
@@ -28,11 +30,15 @@ public class ownerServiceImpl implements ownerServiceInterface {
 	private ModelMapper mapper;
 	@Autowired
 	private propertyRepository propRepo;
+	@Autowired
+	private PasswordEncoder encoder;
 	
 	@Override
 	public ResponseEntity<Owner> registerOwner(OwnerDTO owner) {
 		
 		Owner owner2 = mapper.map(owner, Owner.class);
+		owner2.setPassword(encoder.encode(owner.getPassword()));
+		owner2.setUserRole(Role.ROLE_OWNER);
 		ownerRepo.save(owner2);
 		return new ResponseEntity<Owner>(owner2, HttpStatus.OK);
 	}
@@ -57,7 +63,10 @@ public class ownerServiceImpl implements ownerServiceInterface {
 	}
 	@Override
 	public List<Owner> getAllOwners() {
-		return ownerRepo.getAllOwners();
+		
+		List<Owner> list = ownerRepo.findAll();
+		list.forEach(p->p.getProperties().size());
+		return list;
 	}
 	
 	@Override
@@ -65,6 +74,17 @@ public class ownerServiceImpl implements ownerServiceInterface {
 		ownerRepo.deleteById(ownerId);
 		
 		return new ResponseEntity<String>("Owner deleted Successfully", HttpStatus.OK);
+	}
+
+	@Override
+	public Owner getOwnerByMail(String name) throws resourceNotFoundException {
+		return ownerRepo.findByEmail(name).orElseThrow(()->new resourceNotFoundException("Invalid email"));
+	}
+
+	@Override
+	public Owner getOwnerOfProperty(Long propid) throws resourceNotFoundException {
+		Property property = propRepo.findById(propid).orElseThrow(()->new resourceNotFoundException("Propert's not available"));
+		return property.getOwner();
 	}
 	
 }

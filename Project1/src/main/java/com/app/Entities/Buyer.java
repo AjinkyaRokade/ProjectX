@@ -9,6 +9,7 @@ import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Pattern;
 
@@ -30,24 +31,13 @@ import lombok.ToString;
 	@Setter
 	@ToString
 	@Validated
-	public class Buyer extends BaseEntity{
+	@PrimaryKeyJoinColumn(name = "id")
+	public class Buyer extends User{
 		
-		@Column(length = 30, nullable = false)
-		private String firstName;
-		@Column(length = 30, nullable = false)
-		private String lastName;
-		@Email(message = "Invalid Email Entered")
-		@Column(length = 50, nullable = false, unique = true)
-		private String email;
-		@Column(length = 50, nullable = false)
-		@Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,20}$", message = "Invalid password entered")
-		private String password;
-		@Embedded
-		private Address address;
+		
 		@OneToMany(mappedBy = "buyer", cascade =CascadeType.ALL)
 		@JsonProperty(access = Access.WRITE_ONLY)
 		private List<Property> properties=new ArrayList<Property>();
-		private long mobNo;
 		@OneToOne(mappedBy = "buyer", cascade = CascadeType.ALL, orphanRemoval = true)
 		@JsonProperty(access = Access.WRITE_ONLY)
 		private Wishlist wishlist;

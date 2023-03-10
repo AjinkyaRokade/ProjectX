@@ -15,13 +15,13 @@ import lombok.Setter;
 @Setter
 
 	public class Address{
-		@Column(length =60,nullable = false )
+		@Column(length =60)
 		private String line1;
-		@Column(length =60, nullable = false)
+		@Column(length =60)
 		private String line2;
-		@Column(length =50, nullable = false )
+		@Column(length =50)
 		private String city;
-		@Column(length = 60, nullable = false)
+		@Column(length = 60)
 		private String state;
 		private int pincode;
 }

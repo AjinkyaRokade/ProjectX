@@ -60,7 +60,8 @@ public class Property extends BaseEntity{
 	@Column(length = 50)
 	@Enumerated(EnumType.STRING)
 	private Status status;
-	
+	@Column
+	private String imageURL;
 	@ManyToOne
 	@JoinColumn(name = "Owner_id")
 	@JsonProperty(access = Access.WRITE_ONLY)

@@ -22,5 +22,9 @@ public interface ownerServiceInterface {
 
 	Property addPropertyToOwner(propertyDTO property, Long ownerid) throws resourceNotFoundException;
 
+	Owner getOwnerByMail(String name) throws resourceNotFoundException;
+
+	Owner getOwnerOfProperty(Long propid) throws resourceNotFoundException;
+
 	
 }

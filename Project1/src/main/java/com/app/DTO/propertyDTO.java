@@ -29,6 +29,7 @@ public class propertyDTO {
 	private Status status;
 	private String amenities;
 	private int registrationId;
+	private String imageURL;
 
 	
 	

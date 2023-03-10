@@ -1,6 +1,7 @@
 package com.app.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -16,6 +17,7 @@ import com.app.Entities.PropertyFor;
 import com.app.Entities.Status;
 import com.app.Entities.Type;
 import com.app.Repository.propertyRepository;
+import com.app.exception.resourceNotFoundException;
 
 @Service
 @Transactional
@@ -47,9 +49,20 @@ public class propertyServiceImpl implements propertyServiceInterface {
 	}
 	
 	@Override
-	public ResponseEntity<String> updateProperty(propertyDTO property) {
+	public ResponseEntity<String> updateProperty(propertyDTO property) throws resourceNotFoundException {
 		String msg="Property details have been updated";
-		Property prop=  mapper.map(property, Property.class);
+		Property prop = propRepo.findById(property.getId()).orElseThrow(()->new resourceNotFoundException("Property Not Found"));
+		prop.setAddress(property.getAddress());
+		prop.setArea(property.getArea());
+		prop.setBedrooms(property.getBedrooms());
+		prop.setDescription(property.getDescription());
+		prop.setName(prop.getName());
+		prop.setPrice(property.getPrice());
+		prop.setPropType(property.getPropType());
+		prop.setAmenities(property.getAmenities());
+		prop.setPropertyFor(property.getPropertyFor());
+		prop.setStatus(property.getStatus());
+		prop.setRegistrationId(property.getRegistrationId());
 		propRepo.save(prop);
 		return new ResponseEntity<String>(msg, HttpStatus.OK);
 	}

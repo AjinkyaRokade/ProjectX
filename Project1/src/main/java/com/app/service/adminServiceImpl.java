@@ -4,14 +4,20 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.app.DTO.Userdto;
+
 import com.app.Entities.Property;
+import com.app.Entities.Role;
 import com.app.Entities.Status;
-import com.app.Repository.AdminRepository;
+import com.app.Entities.User;
+import com.app.Repository.UserRepositiory;
 import com.app.Repository.propertyRepository;
 import com.app.exception.resourceNotFoundException;
 
@@ -20,9 +26,13 @@ import com.app.exception.resourceNotFoundException;
 public class adminServiceImpl implements adminServiceInterface {
 
 	@Autowired
-	private AdminRepository adminRepo;
+	private UserRepositiory adminRepo;
 	@Autowired
 	private propertyRepository propRepo;
+	@Autowired
+	private ModelMapper mapper;
+	@Autowired
+	private PasswordEncoder encoder;
 	@Override
 	public List<Property> getAllPendingProperties() {
 		
@@ -43,6 +53,22 @@ public class adminServiceImpl implements adminServiceInterface {
 		return new ResponseEntity<String>("Property has been approved", HttpStatus.OK);
 		
 	}
+	
+	@Override
+	public ResponseEntity<User> registerAdmin(Userdto admin) {
+			User user = mapper.map(admin, User.class);
+		user.setUserRole(Role.ROLE_ADMIN);
+		user.setPassword(encoder.encode(admin.getPassword()));
+//		System.out.println(user);
+		adminRepo.save(user);
+		return new ResponseEntity<User>(user, HttpStatus.OK);
+	}
+
+//	@Override
+//	public Admin getAdminByMail(String name) throws resourceNotFoundException {
+//	
+//		return adminRepo.findByEmail(name).orElseThrow(()->new resourceNotFoundException("Invalid Email"));
+//	}
 
 	
 }

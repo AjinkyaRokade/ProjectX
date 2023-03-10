@@ -23,4 +23,6 @@ void cancelAppointment(Long apptId);
 
 List<Appointment> findByBuyerAndStatus(Buyer buyer, AppointmentStatus status);
 
+List<Appointment> findByBuyer(Buyer buyer);
+
 }

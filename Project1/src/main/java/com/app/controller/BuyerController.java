@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +23,7 @@ import com.app.service.BuyerServiceImpl;
 
 @RestController
 @RequestMapping("/buyer")
+@CrossOrigin(origins = "http://localhost:3000")
 public class BuyerController {
 
 	@Autowired
@@ -35,7 +37,7 @@ public class BuyerController {
 	@GetMapping
 	public List<Buyer> getAllBuyers(){
 		return buyerServ.getAllBuyers();
-	}
+	} 
 	
 	@PutMapping
 	public ResponseEntity<String> updateBuyer(@RequestBody BuyerDTO buyer) throws resourceNotFoundException{
@@ -47,10 +49,19 @@ public class BuyerController {
 		return buyerServ.deleteBuyer(buyerId);
 	}
 	
-	@GetMapping("/property/wishlist/{buyerId}/{propertyId}")
+	@GetMapping("/property/addwishlist/{buyerId}/{propertyId}")
 	public ResponseEntity<Property> addPropertyToWishlist(@PathVariable Long buyerId, @PathVariable Long propertyId) throws resourceNotFoundException, PropertyPolicyException{
 		return buyerServ.addPropertyToWishlist(buyerId, propertyId);
-		
-		
 	}
+	
+	@GetMapping("/property/removewishlist/{buyerId}/{propertyId}")
+	public ResponseEntity<Property> removeFromWishlist(@PathVariable Long buyerId, @PathVariable Long propertyId) throws resourceNotFoundException, PropertyPolicyException{
+		return buyerServ.removeFromWishlist(buyerId, propertyId);
+	}
+	
+	@GetMapping("/property/getWishlist/{buyerId}")
+	public List<Property> getAllPropertiesInWishlist(@PathVariable Long buyerId) throws resourceNotFoundException{
+		return buyerServ.getAllPropertiesInWishlist(buyerId);
+	}
+	
  }

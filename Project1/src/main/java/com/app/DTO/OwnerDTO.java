@@ -2,6 +2,7 @@ package com.app.DTO;
 
 import com.app.Entities.Address;
 import com.app.Entities.PropertyFor;
+import com.app.Entities.Role;
 import com.app.Entities.Status;
 import com.app.Entities.Type;
 
@@ -18,11 +19,12 @@ import lombok.ToString;
 @ToString
 public class OwnerDTO {
 
+	private Role userRole;
 	private Long id;
 	private String firstName;
 	private String lastName;
 	private String email;
 	private String password;
-	private int contactNumber;
+	private Long contactNumber;
 	private Address address;
 }

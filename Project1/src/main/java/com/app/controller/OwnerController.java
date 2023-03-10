@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +22,9 @@ import com.app.service.ownerServiceImpl;
 
 @RestController
 @RequestMapping("/owner")
+@CrossOrigin(origins = "http://localhost:3000")
 public class OwnerController {
+
 
 	@Autowired
 	private ownerServiceImpl ownerServ;
@@ -29,6 +32,12 @@ public class OwnerController {
 	@PostMapping
 	public ResponseEntity<Owner> registerOwner(@RequestBody OwnerDTO owner){
 		return ownerServ.registerOwner(owner);
+	}
+	
+	@GetMapping("/get/{propid}")
+	public Owner getOwnerOfProperty(@PathVariable Long propid) throws resourceNotFoundException {
+		System.out.println("In owner controller");
+		return ownerServ.getOwnerOfProperty(propid);
 	}
 	
 	@PostMapping("/property/{ownerid}")

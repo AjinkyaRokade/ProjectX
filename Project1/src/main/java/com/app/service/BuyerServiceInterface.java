@@ -1,6 +1,7 @@
 package com.app.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
 
@@ -21,5 +22,11 @@ public interface BuyerServiceInterface {
 	ResponseEntity<String> deleteBuyer(Long buyerId);
 
 	ResponseEntity<Property> addPropertyToWishlist(Long buyerId, Long propertyId) throws resourceNotFoundException, PropertyPolicyException;
+
+	ResponseEntity<Property> removeFromWishlist(Long buyerId, Long propertyId) throws resourceNotFoundException;
+
+	List<Property> getAllPropertiesInWishlist(Long buyerId) throws resourceNotFoundException;
+
+	Buyer getBuyerByMail(String name) throws resourceNotFoundException;
 	
 }
