@@ -53,7 +53,7 @@ const NewPassword = () => {
 
   return (
     <div>
-      <Header></Header>
+      {/* <Header></Header> */}
       <div className="Login">
         <div className="Auth-form-container">
           <form className="Auth-form" onSubmit={handleSubmit} style={{margin:"auto"}}>
@@ -81,7 +81,7 @@ const NewPassword = () => {
             {/* <div><button className="btn btn-primary" onClick={forgotPassword}>Forgot password?</button></div> */}
 
             <p className="forgot-password text-right mt-2">
-              <a href="SignUp">Register here</a>
+              <a href="SignUpUser">Register here</a>
             </p>
           </form>
         </div>

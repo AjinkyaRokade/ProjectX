@@ -132,7 +132,7 @@ return (
             
         
             <p className="forgot-password text-right mt-2">
-            <a href="SignUp">Register here</a>
+            <a href="SignUpUser">Register here</a>
             </p>
             
           </form>

@@ -33,20 +33,30 @@ const PropertyDetails=()=>{
 
 
       const bookAppointment=(id)=>{
-        if(!dateFlag){
-        setDateFlag("true");}
-        else{
-        let token = sessionStorage.getItem("token");
-        let userid = sessionStorage.getItem("userID");
-        
-        axios.post("http://localhost:8080/appointment/book/"+id+"/"+userid+"/"+date, {
-          headers: { Authorization: token },}).then((response)=>{
-            toast.warning(response.data)
-            navigate('/')
-          },(error)=>{
-            toast.warning("appointment already booked");
-        })
-      }
+        if (sessionStorage.getItem("token")) {
+            console.log("user is logged in");
+            if(!dateFlag){
+                setDateFlag("true");}
+                else{
+                let token = sessionStorage.getItem("token");
+                let userid = sessionStorage.getItem("userID");
+                
+                axios.post("http://localhost:8080/appointment/book/"+id+"/"+userid+"/"+date, {
+                  headers: { Authorization: token },}).then((response)=>{
+                    toast.warning(response.data)
+                    navigate('/')
+                  },(error)=>{
+                    toast.warning("appointment already booked");
+                })
+              }
+          } else {
+            console.log("user is not logged in");
+            // alert("Kindly Login First");
+            toast.warning("Kindly Login First");
+            navigate("/Login");
+          }
+        ;
+       
       }
 
 
@@ -63,8 +73,17 @@ const PropertyDetails=()=>{
      )
     },[])
     const showOwnertDetails=(id)=>{
-
-        navigate("/OwnerDetails/"+id)
+        if (sessionStorage.getItem("token")) {
+            console.log("user is logged in");
+            navigate("/OwnerDetails/"+id)
+          } else {
+            console.log("user is not logged in");
+            // alert("Kindly Login First");
+            toast.warning("Kindly Login First");
+            navigate("/Login");
+          }
+        ;
+        
       }
     return(
         <div className="Home">

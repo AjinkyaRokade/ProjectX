@@ -39,7 +39,7 @@ const handleSubmit = (e) =>
     axios.request(options).then(function (response) {
       let jwt=(response.data.jwt)
       let userr={
-        role:"visitor"
+        role:"USER"
       }
       let user=JSON.stringify(userr)
       sessionStorage.setItem("token", "Bearer "+jwt);

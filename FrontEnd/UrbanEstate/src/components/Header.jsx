@@ -218,12 +218,10 @@ const Header = () => {
                   Welcome {userRole.firstName}
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem href="/AddShipment">
+                  <DropdownItem href="#">
                     Verify Property
                   </DropdownItem>
-                  <DropdownItem href="/SupplierList">
-                    Add new Supplier
-                  </DropdownItem>
+                  
                   <DropdownItem divider />
                   <DropdownItem>Get list of Owners</DropdownItem>
                   <DropdownItem href="./" onClick={clearSession}>
