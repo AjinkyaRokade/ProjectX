@@ -5,13 +5,13 @@ import "../Layouts/Allcards.css";
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Container } from 'reactstrap';
-
+import { useNavigate } from "react-router-dom";
 
 const USER_API_BASE_URL = "http://localhost:8080/properties";
 
 const AllProperties=()=>{
 
-    let Counter=2;
+    let navigate=useNavigate();
 const [search,setSearch]=useState([]);
     const searchItemByCity=(e)=>{
 
@@ -44,6 +44,20 @@ const [search,setSearch]=useState([]);
            }
        );
       };
+
+const goToWishlist=()=>{
+
+    if (sessionStorage.getItem("token")) {
+        console.log("user is logged in");
+        navigate("/Wishlist")
+      } else {
+        console.log("user is not logged in");
+        // alert("Kindly Login First");
+        toast.warning("Kindly Login First");
+        navigate("/Login");
+      }
+    ;
+}
 
     const [properties,setProperties]=useState([])
 return(
@@ -78,7 +92,7 @@ return(
         }
         <br></br>
         {(sessionStorage.getItem("token") && sessionStorage.getItem("userRole").includes("ADMIN"))?<></>:(
-        <button className='btn btn-success' ><a href='/Wishlist' style={{color:"white", textDecoration:"none"}}>Go to wishlist</a></button>)}
+        <button className='btn btn-success' onClick={goToWishlist} >Go to wishlist</button>)}
     </div>
 )
 }
