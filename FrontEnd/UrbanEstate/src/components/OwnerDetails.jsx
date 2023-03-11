@@ -54,7 +54,7 @@ const OwnerDetails = ({ }) => {
     <br></br>
    
 </div>
-<button className='btn btn-dark'><a href='/Wishlist' style={{color:"white", textDecoration:"none"}}>Back</a></button> <br></br> <br></br>
+<button className='btn btn-dark'><a href='/' style={{color:"white", textDecoration:"none"}}>Back</a></button> <br></br> <br></br>
     <Footer/>
     </div>
   );
