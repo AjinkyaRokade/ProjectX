@@ -85,11 +85,12 @@ return(
         })} */}
         
         {
-            properties.length > 0
+           
+        } 
+        {properties.length > 0
             ? search.map((item)=><div className='Allcards'><Properties  prop={item}/></div> 
             )
-            :<div className='title'><h1>Nothing to show here..</h1></div>
-        }
+            :<div className='title'><h1>Nothing to show here..</h1></div>}
         <br></br>
         {(sessionStorage.getItem("token") && sessionStorage.getItem("userRole").includes("ADMIN"))?<></>:(
         <button className='btn btn-success' onClick={goToWishlist} >Go to wishlist</button>)}
